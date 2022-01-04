@@ -15,6 +15,26 @@ class BlackJackGame {
         return this.currentPlayer == lastPlayer;
     }
 
+    getDealer() {
+        return this.dealer;
+    }
+
+    getPlayers() {
+        return this.players;
+    }
+    
+    getPlayer() {
+        return this.player;
+    }
+
+    getDeck() {
+        return this.deck;
+    }
+
+    getCurrentPlayer() {
+        return this.currentPlayer;
+    }
+
     setCurrentPlayer() {
         if(this.currentPlayer == this.player) {
             this.currentPlayer = this.dealer;
@@ -30,6 +50,10 @@ class BlackJackGame {
         this.dealer.hit(deck);
         this.player.hit(deck);
         this.player.hit(deck);
+    }
+
+    toString() {
+        return JSON.stringify(this);
     }
 }
 

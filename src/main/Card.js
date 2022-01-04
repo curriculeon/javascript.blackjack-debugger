@@ -30,4 +30,8 @@ class Card {
             return this.rank;
         }
     }
+
+    toString() {
+        return this.getValue() + " of " + this.getIcon();
+    }
 }

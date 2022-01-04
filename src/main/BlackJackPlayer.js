@@ -10,7 +10,7 @@ class BlackJackPlayer {
     viewHand() {
         console.log("Printing the hand of player [" + this.name + "]");
         this.cards.forEach(card => {
-            console.log(card.toString());
+            console.log("\t" + card.toString());
         });
     }
 
@@ -31,5 +31,9 @@ class BlackJackPlayer {
             total += currentCardValue
         })
         return total;
+    }
+
+    toString() {
+        return JSON.stringify(this);
     }
 }

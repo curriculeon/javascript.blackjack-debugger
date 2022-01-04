@@ -21,8 +21,8 @@
 	<div class="game">
 		<h3>Blackjack</h3>
 		<div class="game-body">
-			<div class="game-options">
-				<input type="button" id="btnStart" class="btn" value="new game" onclick="startblackjack()">
+			<input type="button" id="btnStart" class="btn" value="new game" onclick="startblackjack()">
+			<div id="game-options" style="display:none">
 				<input type="button" class="btn" value="hit" onclick="hitMe()">
 				<input type="button" class="btn" value="stay" onclick="stay()">
 			</div>
@@ -40,6 +40,7 @@
     <script src="./src/main/Deck.js"></script>
     <script src="./src/main/BlackJackPlayer.js"></script>
     <script src="./src/main/BlackJackGame.js"></script>
+	<script src="./src/main/BlackJackGameLogger.js"></script>
     <script src="./src/main/BlackJackGameControls.js"></script>
 	<script src="./app.js"></script>
   </footer>
