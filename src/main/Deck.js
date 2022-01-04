@@ -7,7 +7,7 @@ class Deck {
         this.cards = []
         suits.forEach(suit => {
             ranks.forEach(rank => {
-                let newCardObject = new Card(rank, suit);
+                const newCardObject = new Card(rank, suit);
                 this.cards.push(newCardObject);
             });
         });
@@ -15,15 +15,15 @@ class Deck {
 
     // simulates getting a card from the deck
     removeAndFetchTopMostCard() {
-        let topMostCard = this.cards.pop();
+        const topMostCard = this.cards.pop();
         return topMostCard;
     }
     
     // simulates shuffling a deck
     shuffle() {
         for (let i = this.cards.length - 1; i > 1; i--) {
-            let x = Math.floor(Math.random() * i);
-            let temp = this.cards[i];
+            const x = Math.floor(Math.random() * i);
+            const temp = this.cards[i];
             this.cards[i]  = this.cards[x];
             this.cards[x] = (temp);
           }

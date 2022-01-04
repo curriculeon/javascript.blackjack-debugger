@@ -9,9 +9,9 @@ class BlackJackGame {
     }
 
     isCurrentPlayerLastPlayer() {
-        let numberOfPlayers = players.length;
-        let lastPlayerIndex = numberOfPlayers - 1;
-        let lastPlayer = this.players[lastPlayerIndex];        
+        const numberOfPlayers = players.length;
+        const lastPlayerIndex = numberOfPlayers - 1;
+        const lastPlayer = this.players[lastPlayerIndex];        
         return this.currentPlayer == lastPlayer;
     }
 
@@ -24,7 +24,7 @@ class BlackJackGame {
     }
 
     play() {
-        let deck = this.deck;
+        const deck = this.deck;
 
         this.dealer.hit(deck);
         this.dealer.hit(deck);

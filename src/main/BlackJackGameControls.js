@@ -16,8 +16,8 @@ class BlackJackGameControls {
     hitMe() {
         // pop a card from the this.deck to the current player
         // this.check if current player new points are over 21
-        let currentPlayer = this.blackJackGame.currentPlayer;
-        let topMostCard = this.blackJackGame.deck.removeAndFetchTopMostCard();
+        const currentPlayer = this.blackJackGame.currentPlayer;
+        const topMostCard = this.blackJackGame.deck.removeAndFetchTopMostCard();
         currentPlayer.addCard(topMostCard);
         this.renderCardInPlayerHand(topMostCard, currentPlayer.name);
         this.updatePoints();
@@ -29,9 +29,9 @@ class BlackJackGameControls {
         // if the current player is the last player
         if(!this.blackJackGame.isCurrentPlayerLastPlayer()) {
             // remove active on current player
-            let currentPlayer = this.blackJackGame.currentPlayer;
-            let currentPlayerName = currentPlayer.name;
-            let elementId = "player_" + currentPlayerName;        
+            const currentPlayer = this.blackJackGame.currentPlayer;
+            const currentPlayerName = currentPlayer.name;
+            const elementId = "player_" + currentPlayerName;        
             document.getElementById(elementId).classList.remove("active");
 
             // switch current player to next player
@@ -58,13 +58,13 @@ class BlackJackGameControls {
     createPlayersView() {
         document.getElementById("players").innerHTML = "";
         this.blackJackGame.players.forEach(player => {
-            let playerName = player.name;
+            const playerName = player.name;
             
             // create new web-elements for Player's view
-            let div_player = document.createElement("div");
-            let div_playerid = document.createElement("div");
-            let div_hand = document.createElement("div");
-            let div_points = document.createElement("div");
+            const div_player = document.createElement("div");
+            const div_playerid = document.createElement("div");
+            const div_hand = document.createElement("div");
+            const div_points = document.createElement("div");
 
             // modify the state of newly created web-elements
             div_player.className = "player";
@@ -83,9 +83,9 @@ class BlackJackGameControls {
     }
 
     renderCardInPlayerHand(card, playerName) {
-        let playerHandId = "hand_" + playerName;
-        let playerHandElement = document.getElementById(playerHandId);
-        let cardElement = document.createElement("div");
+        const playerHandId = "hand_" + playerName;
+        const playerHandElement = document.getElementById(playerHandId);
+        const cardElement = document.createElement("div");
         cardElement.className = "card";
         cardElement.innerHTML = card.getValue() + "<br/>" + card.getIcon();
         playerHandElement.appendChild(cardElement);
@@ -93,8 +93,8 @@ class BlackJackGameControls {
 
     updatePoints() {
         this.blackJackGame.players.forEach(player => {
-            let playerName = player.name;
-            let points = player.getHandTotal();
+            const playerName = player.name;
+            const points = player.getHandTotal();
             player.viewHand();
             document.getElementById("points_" + playerName).innerHTML = points;
         })
@@ -102,16 +102,16 @@ class BlackJackGameControls {
 
 
     setNumberOfCardsOnScreen() {
-        let deck = this.blackJackGame.deck;
-        let cards = deck.cards;
-        let numberOfCards = cards.length;
+        const deck = this.blackJackGame.deck;
+        const cards = deck.cards;
+        const numberOfCards = cards.length;
 
         document.getElementById("deckcount").innerHTML = numberOfCards;
     }
 
     checkAndUpdateWinner() {
         if (this.blackJackGame.currentPlayer.getHandTotal() > 21) {
-            let statusElement = document.getElementById("status");
+            const statusElement = document.getElementById("status");
             statusElement.innerHTML = "Player: " + this.blackJackGame.currentPlayer.name + " LOST";			
             statusElement.style.display = "inline-block";
             this.endGame()
@@ -119,9 +119,9 @@ class BlackJackGameControls {
     }
 
     endGame() {
-        let winner = this.blackJackGame.dealer;
-        let dealerScore = this.blackJackGame.dealer.getHandTotal();
-        let playerScore = this.blackJackGame.player.getHandTotal();
+        const winner = this.blackJackGame.dealer;
+        const dealerScore = this.blackJackGame.dealer.getHandTotal();
+        const playerScore = this.blackJackGame.player.getHandTotal();
         if (playerScore > dealerScore && playerScore < 22) {
             winner = player;
         }

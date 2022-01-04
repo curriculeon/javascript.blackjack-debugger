@@ -16,7 +16,7 @@ class BlackJackPlayer {
 
     // add card to hand (presumably from deck or dealer)
     hit(deck) {
-        let incomingCard = deck.removeAndFetchTopMostCard();
+        const incomingCard = deck.removeAndFetchTopMostCard();
         this.addCard(incomingCard);
     }
     
