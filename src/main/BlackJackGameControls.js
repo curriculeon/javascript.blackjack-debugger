@@ -43,7 +43,7 @@ class BlackJackGameControls {
             currentPlayerName = currentPlayer.name;
             elementId = "player_" + currentPlayerName;
             document.getElementById(elementId).classList.add("active");
-        } else {
+        } else { 
             this.endGame();
         }
     }

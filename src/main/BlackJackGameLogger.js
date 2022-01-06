@@ -8,7 +8,7 @@ class BlackJackGameLogger {
     isCurrentPlayerLastPlayer() {
         log("Checking if current player is last player.");
         const outcome = this.blackJackGame.isCurrentPlayerLastPlayer();
-        log("Current player is " + outcome ? "" : "not" + " last player.")
+        log("Current player is " + (outcome ? "" : "not") + " last player.")
     }
 
     getPlayer() {
