@@ -18,6 +18,7 @@ class BlackJackGameControls {
         // pop a card from the this.deck to the current player
         // this.check if current player new points are over 21
         const currentPlayer = this.blackJackGame.getCurrentPlayer();
+        const currentPlayerHandTotal = currentPlayer.getHandTotal();
         const topMostCard = this.blackJackGame.getDeck().removeAndFetchTopMostCard();
         currentPlayer.addCard(topMostCard);
         this.renderCardInPlayerHand(topMostCard, currentPlayer.name);
@@ -28,7 +29,7 @@ class BlackJackGameControls {
 
     stay() {
         // if the current player is the last player
-        if(!this.blackJackGame.isCurrentPlayerLastPlayer()) {
+        if(!this.blackJackGame.isCurrentPlayerDealer()) {
             // remove active on current player
             let currentPlayer = this.blackJackGame.getCurrentPlayer();
             let currentPlayerName = currentPlayer.name;

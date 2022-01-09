@@ -5,9 +5,9 @@ class BlackJackGameLogger {
         this.blackJackGame = new BlackJackGame();
     }
 
-    isCurrentPlayerLastPlayer() {
+    isCurrentPlayerDealer() {
         log("Checking if current player is last player.");
-        const outcome = this.blackJackGame.isCurrentPlayerLastPlayer();
+        const outcome = this.blackJackGame.isCurrentPlayerDealer();
         log("Current player is " + (outcome ? "" : "not") + " last player.")
     }
 

@@ -8,7 +8,7 @@ class BlackJackGame {
         this.deck.shuffle();
     }
 
-    isCurrentPlayerLastPlayer() {
+    isCurrentPlayerDealer() {
         return this.currentPlayer == this.dealer;
     }
 
