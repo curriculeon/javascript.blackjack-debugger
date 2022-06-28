@@ -33,11 +33,15 @@ class BlackJackGame {
     }
 
     setCurrentPlayer() {
+        let elementId = "player_" + this.getCurrentPlayer().name;
+        document.getElementById(elementId).classList.remove("active");
         if(this.currentPlayer == this.player) {
             this.currentPlayer = this.dealer;
         } else {
             this.currentPlayer = this.player;
         }
+        elementId = "player_" + this.getCurrentPlayer().name;
+        document.getElementById(elementId).classList.add("active");
     }
 
     play() {
