@@ -1,6 +1,11 @@
 # Simple Arcade Simulation
-* **Objective** - To create modify a preexisting BlackJack game to function properly.
-* **Purpose** - To gain familiarity with `HTML`, `CSS`, and `JavaScript` integration
+* **Objective**
+    * To create modify a preexisting BlackJack game to function properly.
+* **Purpose**
+    * To gain familiarity with `HTML`, `CSS`, and `JavaScript` integratio
+* **Description**
+    * This project has been deployed to github pages. A live preview of it is available by clicking the link below
+    * [`https://curriculeon.github.io/javascript.blackjack-debugger/`](https://curriculeon.github.io/javascript.blackjack-debugger/) 
 
 
 
