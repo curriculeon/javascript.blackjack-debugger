@@ -35,9 +35,9 @@
     * `git clone https://github.com/MYUSERNAME/NAMEOFPROJECT`
 
 
-#### Part 4 - Viewing the Project Locally
+#### Part 4 - Editing the Project Locally
 * Upon cloning this project open the `index.html` in a browser to view the application
-* Edit the `src` directory of this project to make the application work as expected.
+* Edit the contents of the `src` directory of this project to make the application work as expected.
 
 
 
