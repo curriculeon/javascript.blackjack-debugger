@@ -15,7 +15,7 @@ class BlackJackGameControls {
 
     hitMe() {
         // pop a card from the this.deck to the current player
-        // this.check if current player new points are over 21
+        // check if current player new points are over 21
         const currentPlayer = this.blackJackGame.getCurrentPlayer();
         const currentPlayerHandTotal = currentPlayer.getHandTotal();
         const topMostCard = this.blackJackGame.getDeck().removeAndFetchTopMostCard();
