@@ -21,11 +21,11 @@ class Deck {
     
     // simulates shuffling a deck
     shuffle() {
-        for (let i = this.cards.length - 1; i > 1; i--) {
-            const x = Math.floor(Math.random() * i);
-            const temp = this.cards[i];
-            this.cards[i]  = this.cards[x];
-            this.cards[x] = (temp);
+        for (let currentIndex = this.cards.length - 1; i > 1; i--) {
+            const randomIndex = Math.floor(Math.random() * i);
+            const currentCard = this.cards[currentIndex];
+            this.cards[currentIndex]  = this.cards[randomIndex];
+            this.cards[randomIndex] = currentCard;
           }
     }
 }
