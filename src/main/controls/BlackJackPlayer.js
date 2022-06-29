@@ -2,11 +2,11 @@
 class BlackJackPlayer {
     constructor(name) {
         this.name = name;
-        this.blackJackPlayerData = new BlackJackPlayerData(name);
+        this.blackJackPlayerData = new BlackJackPlayerState(name);
         this.blackJackPlayerView = new BlackJackPlayerView(this.blackJackPlayerData);
     }
 
-    // prints the cards of the current BlackJackPlayerData
+    // prints the cards of the current BlackJackPlayerState
     viewHand() {
         this.blackJackPlayerView.viewHand();
     }

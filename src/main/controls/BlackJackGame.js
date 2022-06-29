@@ -6,7 +6,7 @@ class BlackJackGame {
     }
 
     startblackjack() {        
-        this.blackJackGameData = new BlackJackGameDataLogger();
+        this.blackJackGameData = new BlackJackGameStateLogger();
         this.blackJackGameDataView = new BlackJackGameView(this.blackJackGameData);
 
         this.blackJackGameDataView.createPlayersView();

@@ -1,9 +1,9 @@
 const log = (prompt) => console.log(prompt);
 
 // the purpose of this class is to log information about data about the `Game`
-class BlackJackGameDataLogger {
+class BlackJackGameStateLogger {
     constructor() {
-        this.blackJackGameData = new BlackJackGameData();
+        this.blackJackGameData = new BlackJackGameState();
     }
 
     isCurrentPlayerDealer() {

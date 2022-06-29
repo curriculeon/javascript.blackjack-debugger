@@ -1,5 +1,5 @@
 // the purpose of this class is to encapsulate data about the `Player`
-class BlackJackPlayerData {
+class BlackJackPlayerState {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
     constructor(name) {

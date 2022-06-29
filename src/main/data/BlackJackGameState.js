@@ -1,5 +1,5 @@
 // the purpose of this class is to encapsulate data about the `Game`
-class BlackJackGameData {
+class BlackJackGameState {
     constructor() {
         this.player = new BlackJackPlayer("Leon");
         this.dealer = new BlackJackPlayer("Dealer");
