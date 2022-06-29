@@ -20,7 +20,7 @@ class Deck {
     }
     
     // simulates shuffling a deck
-    shuffle() {
+    shuffle() { 
         for (let currentIndex = this.cards.length - 1; currentIndex > 1; currentIndex--) {
             const randomIndex = Math.floor(Math.random() * currentIndex);
             const currentCard = this.cards[currentIndex];
