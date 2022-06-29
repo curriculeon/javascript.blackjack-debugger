@@ -1,9 +1,5 @@
 // the purpose of this class is to mediate the behaviors of `GameData` and `GameView`
 class BlackJackGame {
-    constructor() {
-        this.blackJackGameData = null;
-    }
-
     startblackjack() {        
         this.blackJackGameData = new BlackJackGameStateLogger();
         this.blackJackGameDataView = new BlackJackGameView(this.blackJackGameData);
