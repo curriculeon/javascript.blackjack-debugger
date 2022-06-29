@@ -1,8 +1,8 @@
 const log = (prompt) => console.log(prompt);
 
-class BlackJackGameLogger {
+class BlackJackGameDataLogger {
     constructor() {
-        this.blackJackGame = new BlackJackGame();
+        this.blackJackGame = new BlackJackGameData();
     }
 
     isCurrentPlayerDealer() {

@@ -1,4 +1,4 @@
-class BlackJackGame {
+class BlackJackGameData {
     constructor() {
         const playerData = new BlackJackPlayerData("Leon");
         const dealerData = new BlackJackPlayerData("Dealer");

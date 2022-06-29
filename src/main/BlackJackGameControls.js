@@ -6,13 +6,14 @@ class BlackJackGameControls {
     }
 
     startblackjack() {        
-        this.blackJackGame = new BlackJackGameLogger();
+        this.blackJackGame = new BlackJackGameDataLogger();
         this.blackJackGameView = new BlackJackGameView(this.blackJackGame);
 
         this.blackJackGameView.createPlayersView();
         this.blackJackGame.play();        
-        this.blackJackGameView.setNumberOfCardsOnScreen();
         this.blackJackGameView.clearGameOptions();
+        this.blackJackGameView.setNumberOfCardsOnScreen();
+        this.blackJackGameView.setActiveOnCurrentPlayer();
     }
 
     hit() {
@@ -22,6 +23,7 @@ class BlackJackGameControls {
         this.blackJackGameView.updatePoints();
         this.blackJackGameView.setNumberOfCardsOnScreen();
         this.blackJackGameView.checkAndUpdateWinner();
+        this.blackJackGameView.setActiveOnCurrentPlayer();
     }
 
     stay() {
@@ -32,7 +34,7 @@ class BlackJackGameControls {
             // switch current player to next player
             this.blackJackGameView.removeActiveOnCurrentPlayer();
             this.blackJackGame.setCurrentPlayer();
-            this.blackJackGameView.setActiveOnCurrentPlayer();
         }
+        this.blackJackGameView.setActiveOnCurrentPlayer();
     }
 }
