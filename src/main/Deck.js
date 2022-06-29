@@ -21,8 +21,8 @@ class Deck {
     
     // simulates shuffling a deck
     shuffle() {
-        for (let currentIndex = this.cards.length - 1; i > 1; i--) {
-            const randomIndex = Math.floor(Math.random() * i);
+        for (let currentIndex = this.cards.length - 1; currentIndex > 1; currentIndex--) {
+            const randomIndex = Math.floor(Math.random() * currentIndex);
             const currentCard = this.cards[currentIndex];
             this.cards[currentIndex]  = this.cards[randomIndex];
             this.cards[randomIndex] = currentCard;
