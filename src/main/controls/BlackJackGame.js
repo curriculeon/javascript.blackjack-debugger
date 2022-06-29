@@ -1,4 +1,4 @@
-// the purpose of this class is to manipulate the DOM by evaluating the `Game` state
+// the purpose of this class is to mediate the behaviors of `GameData` and `GameView`
 class BlackJackGame {
     constructor() {
         this.blackJackGameData = null;
@@ -17,8 +17,6 @@ class BlackJackGame {
     }
 
     hit() {
-        // pop a card from the this.deck to the current player
-        // check if current player new points are over 21
         this.blackJackGameData.hit();
         this.blackJackGameDataView.updatePoints();
         this.blackJackGameDataView.setNumberOfCardsOnScreen();

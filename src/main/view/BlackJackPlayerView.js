@@ -1,3 +1,4 @@
+// the purpose of this class is to manipulate the DOM by evaluating the `Player` state
 class BlackJackPlayerView {
     constructor(player) {
         this.playerData = player;

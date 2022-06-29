@@ -1,6 +1,5 @@
+// the purpose of this class is to log information about data about the `Player`
 class BlackJackPlayerDataLogger {
-    // a blackjack player should receive a name when created
-    // a black jack player's hand is empty until receiving cards from a dealer
     constructor(name) {
         console.log("Constructing a new BlackJackPlayerData.");
         const player = new BlackJackPlayerData(name);
@@ -11,7 +10,6 @@ class BlackJackPlayerDataLogger {
         console.log(player);
     }
 
-    // add card to hand (presumably from deck or dealer)
     hit(deck) {
         console.log(this.playerData.name + " is hitting the deck.")
         this.playerData.hit(deck);

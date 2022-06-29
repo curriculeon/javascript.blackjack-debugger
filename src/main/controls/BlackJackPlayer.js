@@ -1,6 +1,5 @@
+// the purpose of this class is to mediate the behaviors of `PlayerData` and `PlayerView`
 class BlackJackPlayer {
-    // a blackjack player should receive a name when created
-    // a black jack player's hand is empty until receiving cards from a dealer
     constructor(name) {
         this.name = name;
         this.blackJackPlayerData = new BlackJackPlayerData(name);
@@ -12,7 +11,7 @@ class BlackJackPlayer {
         this.blackJackPlayerView.viewHand();
     }
 
-    // add card to hand (presumably from deck or dealer)
+    // add card to hand
     hit(deck) {
         this.addCard(deck.removeAndFetchTopMostCard());
     }

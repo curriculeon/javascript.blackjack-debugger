@@ -1,3 +1,4 @@
+// the purpose of this class is to encapsulate data about the `Player`
 class BlackJackPlayerData {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
@@ -6,7 +7,7 @@ class BlackJackPlayerData {
         this.cards = [];
     }
 
-    // add card to hand (presumably from deck or dealer)
+    // add card to hand
     hit(deck) {
         const incomingCard = deck.removeAndFetchTopMostCard();
         this.addCard(incomingCard);
