@@ -1,50 +1,33 @@
 class BlackJackPlayer {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
-    constructor(name) {
-        this.name = name;
-        this.cards = [];
+    constructor(blackJackPlayerData) {
+        this.name = blackJackPlayerData.name;
+        this.blackJackPlayerData = blackJackPlayerData;
+        this.blackJackPlayerView = new BlackJackPlayerView(blackJackPlayerData);
     }
 
-    // prints the cards of the current BlackJackPlayer
+    // prints the cards of the current BlackJackPlayerData
     viewHand() {
-        console.log("Printing the hand of player [" + this.name + "]");
-        this.cards.forEach(card => {
-            console.log("\t" + card.toString());
-        });
+        this.blackJackPlayerView.viewHand();
     }
 
     // add card to hand (presumably from deck or dealer)
     hit(deck) {
-        const incomingCard = deck.removeAndFetchTopMostCard();
-        this.addCard(incomingCard);
+        this.addCard(deck.removeAndFetchTopMostCard());
     }
     
     addCard(cardToAddToHand) {
-        const playerName = this.name;
-        const playerHandId = "hand_" + playerName;
-        const playerHandElement = document.getElementById(playerHandId);
-        playerHandElement.innerHTML = "";
-        
-        this.cards.push(cardToAddToHand);
-        this.cards.forEach(card => {
-            const cardElement = document.createElement("div");
-            cardElement.className = "card";
-            cardElement.innerHTML = card.getValue() + "<br/>" + card.getIcon();
-            playerHandElement.appendChild(cardElement);
-        });
+        this.blackJackPlayerView.clearHand();    
+        this.blackJackPlayerData.addCard(cardToAddToHand);
+        this.blackJackPlayerView.renderHand();
     }
 
     getHandTotal() {
-        let total = 0;
-        this.cards.forEach(currentCard=> {
-            let currentCardValue = currentCard.getValue();
-            total += currentCardValue
-        })
-        return total;
+        return this.blackJackPlayerData.getHandTotal();
     }
 
     toString() {
-        return JSON.stringify(this);
+        return this.blackJackPlayerData.toString();
     }
 }
