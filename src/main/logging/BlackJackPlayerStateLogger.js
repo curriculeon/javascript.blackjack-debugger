@@ -2,12 +2,11 @@
 class BlackJackPlayerStateLogger {
     constructor(name) {
         console.log("Constructing a new BlackJackPlayerState.");
-        const player = new BlackJackPlayerState(name);
-        this.name = name;    
-        this.cards = player.cards;
-        this.playerData = player;
+        this.name = name;
+        this.playerData = new BlackJackPlayerState(name);
+        this.cards = this.playerData.cards;
         console.log("BlackJackPlayerState construction complete.");
-        console.log(player);
+        console.log(this.playerData);
     }
 
     hit(deck) {
