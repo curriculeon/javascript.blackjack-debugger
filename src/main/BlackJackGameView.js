@@ -18,7 +18,6 @@ class BlackJackGameView {
         // generate each player's view
         this.blackJackGame.getPlayers().forEach(player => {
             const playerName = player.name;
-            console.log("creating view for " + playerName);
             
             // create new web-elements for Player's view
             const div_player = document.createElement("div");
@@ -39,7 +38,6 @@ class BlackJackGameView {
             div_player.appendChild(div_hand);
             div_player.appendChild(div_points);
             playersView.appendChild(div_player);
-            console.log("created hand-view with id of " + div_hand.id);
         });
     }
 

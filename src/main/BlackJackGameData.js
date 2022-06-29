@@ -1,7 +1,7 @@
 class BlackJackGameData {
     constructor() {
-        const playerData = new BlackJackPlayerData("Leon");
-        const dealerData = new BlackJackPlayerData("Dealer");
+        const playerData = new BlackJackPlayerDataLogger("Leon");
+        const dealerData = new BlackJackPlayerDataLogger("Dealer");
         this.player = new BlackJackPlayer(playerData);
         this.dealer = new BlackJackPlayer(dealerData);
         this.players = [this.player, this.dealer];
