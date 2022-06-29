@@ -43,6 +43,10 @@ class BlackJackGameLogger {
         this.getCurrentPlayer();
     }
 
+    hit() {
+        this.blackJackGame.hit();
+    }
+
     play() {
         log("Playing initial hand")
         this.blackJackGame.play();
