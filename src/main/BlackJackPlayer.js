@@ -1,10 +1,10 @@
 class BlackJackPlayer {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
-    constructor(blackJackPlayerData) {
-        this.name = blackJackPlayerData.name;
-        this.blackJackPlayerData = blackJackPlayerData;
-        this.blackJackPlayerView = new BlackJackPlayerView(blackJackPlayerData);
+    constructor(name) {
+        this.name = name;
+        this.blackJackPlayerData = new BlackJackPlayerData(name);
+        this.blackJackPlayerView = new BlackJackPlayerView(this.blackJackPlayerData);
     }
 
     // prints the cards of the current BlackJackPlayerData
