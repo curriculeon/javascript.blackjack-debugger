@@ -2,7 +2,6 @@
 class BlackJackGame {
     constructor() {
         this.blackJackGameData = null;
-        document.getElementById("winner").style.display = "none";
     }
 
     startblackjack() {        

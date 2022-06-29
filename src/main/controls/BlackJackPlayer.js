@@ -2,7 +2,7 @@
 class BlackJackPlayer {
     constructor(name) {
         this.name = name;
-        this.blackJackPlayerData = new BlackJackPlayerState(name);
+        this.blackJackPlayerData = new BlackJackPlayerStateLogger(name);
         this.blackJackPlayerView = new BlackJackPlayerView(this.blackJackPlayerData);
     }
 
