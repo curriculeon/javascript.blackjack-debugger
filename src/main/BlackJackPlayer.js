@@ -21,7 +21,18 @@ class BlackJackPlayer {
     }
     
     addCard(cardToAddToHand) {
+        const playerName = this.name;
+        const playerHandId = "hand_" + playerName;
+        const playerHandElement = document.getElementById(playerHandId);
+        playerHandElement.innerHTML = "";
+        
         this.cards.push(cardToAddToHand);
+        this.cards.forEach(card => {
+            const cardElement = document.createElement("div");
+            cardElement.className = "card";
+            cardElement.innerHTML = card.getValue() + "<br/>" + card.getIcon();
+            playerHandElement.appendChild(cardElement);
+        });
     }
 
     getHandTotal() {

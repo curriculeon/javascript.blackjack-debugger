@@ -7,10 +7,9 @@ class BlackJackGameControls {
 
     startblackjack() {        
         this.blackJackGame = new BlackJackGameLogger();
-        this.blackJackGame.play();
         this.createPlayersView();
+        this.blackJackGame.play();        
         this.setNumberOfCardsOnScreen();
-        this.renderCardsInPlayerHand();
         document.getElementById("game-options").style.display = "";
     }
 
@@ -21,7 +20,6 @@ class BlackJackGameControls {
         const currentPlayerHandTotal = currentPlayer.getHandTotal();
         const topMostCard = this.blackJackGame.getDeck().removeAndFetchTopMostCard();
         currentPlayer.addCard(topMostCard);
-        this.renderCardInPlayerHand(topMostCard, currentPlayer.name);
         this.updatePoints();
         this.setNumberOfCardsOnScreen();
         this.checkAndUpdateWinner();
@@ -30,36 +28,19 @@ class BlackJackGameControls {
     stay() {
         // if the current player is the last player
         if(!this.blackJackGame.isCurrentPlayerDealer()) {
-            // remove active on current player
-            let currentPlayer = this.blackJackGame.getCurrentPlayer();
-            let currentPlayerName = currentPlayer.name;
-            let elementId = "player_" + currentPlayerName;        
-            document.getElementById(elementId).classList.remove("active");
-
             // switch current player to next player
             this.blackJackGame.setCurrentPlayer();
-
-            // add active on newly current player
-            currentPlayer = this.blackJackGame.getCurrentPlayer();
-            currentPlayerName = currentPlayer.name;
-            elementId = "player_" + currentPlayerName;
-            document.getElementById(elementId).classList.add("active");
         } else { 
             this.endGame();
         }
     }
 
-    renderCardsInPlayerHand() {
-        this.blackJackGame.getPlayers().forEach(player => {
-            player.cards.forEach(card => {
-                this.renderCardInPlayerHand(card, player.name);
-            });
-        });
-    }
-
     createPlayersView() {
         const playersView = document.getElementById("players");
+        // clear player's view
         playersView.innerHTML = "";
+
+        // generate each player's view
         this.blackJackGame.getPlayers().forEach(player => {
             const playerName = player.name;
             
@@ -83,15 +64,6 @@ class BlackJackGameControls {
             div_player.appendChild(div_points);
             playersView.appendChild(div_player);
         });
-    }
-
-    renderCardInPlayerHand(card, playerName) {
-        const playerHandId = "hand_" + playerName;
-        const playerHandElement = document.getElementById(playerHandId);
-        const cardElement = document.createElement("div");
-        cardElement.className = "card";
-        cardElement.innerHTML = card.getValue() + "<br/>" + card.getIcon();
-        playerHandElement.appendChild(cardElement);
     }
 
     updatePoints() {
