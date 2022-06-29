@@ -28,4 +28,8 @@ class Deck {
             this.cards[randomIndex] = currentCard;
           }
     }
+
+    toString() {
+        return JSON.stringify(this);
+    }
 }
