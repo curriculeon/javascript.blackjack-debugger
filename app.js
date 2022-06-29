@@ -5,8 +5,8 @@ function startblackjack() {
 	controls.startblackjack();
 }
 
-function hitMe() {
-	controls.hitMe();
+function hit() {
+	controls.hit();
 }
 
 function stay() {

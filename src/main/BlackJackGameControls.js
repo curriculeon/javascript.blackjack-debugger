@@ -2,7 +2,7 @@
 class BlackJackGameControls {
     constructor() {
         this.blackJackGame = null;
-        document.getElementById("status").style.display = "none";
+        document.getElementById("winner").style.display = "none";
     }
 
     startblackjack() {        
@@ -13,11 +13,10 @@ class BlackJackGameControls {
         document.getElementById("game-options").style.display = "";
     }
 
-    hitMe() {
+    hit() {
         // pop a card from the this.deck to the current player
         // check if current player new points are over 21
         const currentPlayer = this.blackJackGame.getCurrentPlayer();
-        const currentPlayerHandTotal = currentPlayer.getHandTotal();
         const topMostCard = this.blackJackGame.getDeck().removeAndFetchTopMostCard();
         currentPlayer.addCard(topMostCard);
         this.updatePoints();
@@ -26,12 +25,12 @@ class BlackJackGameControls {
     }
 
     stay() {
-        // if the current player is the last player
-        if(!this.blackJackGame.isCurrentPlayerDealer()) {
+        // if the current player is the dealer
+        if(this.blackJackGame.isCurrentPlayerDealer()) {
+            this.endGame();
+        } else { 
             // switch current player to next player
             this.blackJackGame.setCurrentPlayer();
-        } else { 
-            this.endGame();
         }
     }
 
@@ -86,9 +85,9 @@ class BlackJackGameControls {
 
     checkAndUpdateWinner() {
         if (this.blackJackGame.getCurrentPlayer().getHandTotal() > 21) {
-            const statusElement = document.getElementById("status");
-            statusElement.innerHTML = "Player: " + this.blackJackGame.getCurrentPlayer().name + " LOST";			
-            statusElement.style.display = "inline-block";
+            const winnerElement = document.getElementById("winner");
+            winnerElement.innerHTML = "Player: " + this.blackJackGame.getCurrentPlayer().name + " LOST";			
+            winnerElement.style.display = "inline-block";
             this.endGame()
         }
     }
@@ -101,7 +100,7 @@ class BlackJackGameControls {
             winner = player;
         }
         document.getElementById("game-options").style.display = "none";
-        document.getElementById("status").innerHTML = "Winner: Player " + winner.name;
-        document.getElementById("status").style.display = "inline-block";
+        document.getElementById("winner").innerHTML = "Winner: Player " + winner.name;
+        document.getElementById("winner").style.display = "inline-block";
     }
 }
