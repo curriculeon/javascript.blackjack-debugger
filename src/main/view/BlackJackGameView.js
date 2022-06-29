@@ -1,7 +1,7 @@
 // the purpose of this class is to manipulate the DOM by evaluating the `Game` state
 class BlackJackGameView {
     constructor(blackJackGameData) {
-        this.blackJackGame=blackJackGameData;
+        this.blackJackGameData=blackJackGameData;
         document.getElementById("winner").style.display = "none";
     }
 
@@ -16,7 +16,7 @@ class BlackJackGameView {
         playersView.innerHTML = "";
 
         // generate each player's view
-        this.blackJackGame.getPlayers().forEach(player => {
+        this.blackJackGameData.getPlayers().forEach(player => {
             const playerName = player.name;
             
             // create new web-elements for Player's view
@@ -42,7 +42,7 @@ class BlackJackGameView {
     }
 
     updatePoints() {
-        this.blackJackGame.getPlayers().forEach(player => {
+        this.blackJackGameData.getPlayers().forEach(player => {
             const playerName = player.name;
             const points = player.getHandTotal();
             player.viewHand();
@@ -52,7 +52,7 @@ class BlackJackGameView {
 
 
     setNumberOfCardsOnScreen() {
-        const deck = this.blackJackGame.getDeck();
+        const deck = this.blackJackGameData.getDeck();
         const cards = deck.cards;
         const numberOfCards = cards.length;
 
@@ -60,18 +60,18 @@ class BlackJackGameView {
     }
 
     checkAndUpdateWinner() {
-        if (this.blackJackGame.getCurrentPlayer().getHandTotal() > 21) {
+        if (this.blackJackGameData.getCurrentPlayer().getHandTotal() > 21) {
             const winnerElement = document.getElementById("winner");
-            winnerElement.innerHTML = "Player: " + this.blackJackGame.getCurrentPlayer().name + " LOST";			
+            winnerElement.innerHTML = "Player: " + this.blackJackGameData.getCurrentPlayer().name + " LOST";			
             winnerElement.style.display = "inline-block";
             this.endGame()
         }
     }
 
     endGame() {
-        let winner = this.blackJackGame.getDealer();
-        const dealerScore = this.blackJackGame.getDealer().getHandTotal();
-        const playerScore = this.blackJackGame.getPlayer().getHandTotal();
+        let winner = this.blackJackGameData.getDealer();
+        const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
+        const playerScore = this.blackJackGameData.getPlayer().getHandTotal();
         if (playerScore > dealerScore && playerScore < 22) {
             winner = player;
         }
@@ -82,7 +82,7 @@ class BlackJackGameView {
 
     removeActiveOnCurrentPlayer() {
         // remove active on current player
-        const currentPlayer = this.blackJackGame.getCurrentPlayer();
+        const currentPlayer = this.blackJackGameData.getCurrentPlayer();
         const currentPlayerName = currentPlayer.name;
         const elementId = "player_" + currentPlayerName;        
         document.getElementById(elementId).classList.remove("active");
@@ -90,7 +90,7 @@ class BlackJackGameView {
 
     setActiveOnCurrentPlayer() {
         // add active on newly current player
-        const currentPlayer = this.blackJackGame.getCurrentPlayer();
+        const currentPlayer = this.blackJackGameData.getCurrentPlayer();
         const currentPlayerName = currentPlayer.name;
         const elementId = "player_" + currentPlayerName;
         document.getElementById(elementId).classList.add("active");

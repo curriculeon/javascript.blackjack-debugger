@@ -1,17 +1,17 @@
 class BlackJackPlayerView {
     constructor(player) {
-        this.player = player;
+        this.playerData = player;
     }
 
     viewHand() {
         console.log("Printing the hand of player [" + this.name + "]");
-        this.player.cards.forEach(card => {
+        this.playerData.cards.forEach(card => {
             console.log("\t" + card.toString());
         });
     }
 
     getHandWebElement() {
-        const playerName = this.player.name;
+        const playerName = this.playerData.name;
         const playerHandId = "hand_" + playerName;
         const playerHandElement = document.getElementById(playerHandId);
         return playerHandElement;
@@ -22,7 +22,7 @@ class BlackJackPlayerView {
     }
 
     renderHand() {
-        this.player.cards.forEach(card => {
+        this.playerData.cards.forEach(card => {
             const cardElement = document.createElement("div");
             cardElement.className = "card";
             cardElement.innerHTML = card.getValue() + "<br/>" + card.getIcon();
