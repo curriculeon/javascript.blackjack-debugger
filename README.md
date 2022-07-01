@@ -1,6 +1,6 @@
 # Simple Arcade Simulation
 * **Objective**
-    * To create modify a preexisting BlackJack game to function properly.
+    * To modify a preexisting BlackJack game to function properly.
 * **Purpose**
     * To gain familiarity with `HTML`, `CSS`, and `JavaScript` integratio
 * **Description**
