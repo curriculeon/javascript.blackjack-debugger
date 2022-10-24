@@ -1,5 +1,5 @@
 // these functions are for the button
-let controls = new BlackJackGameControls();
+let controls = new BlackJackGame();
 
 function startblackjack() {
 	controls.startblackjack();

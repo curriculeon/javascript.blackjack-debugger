@@ -1,4 +1,5 @@
-class BlackJackPlayer {
+// the purpose of this class is to encapsulate data about the `Player`
+class BlackJackPlayerState {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
     constructor(name) {
@@ -6,15 +7,7 @@ class BlackJackPlayer {
         this.cards = [];
     }
 
-    // prints the cards of the current BlackJackPlayer
-    viewHand() {
-        console.log("Printing the hand of player [" + this.name + "]");
-        this.cards.forEach(card => {
-            console.log("\t" + card.toString());
-        });
-    }
-
-    // add card to hand (presumably from deck or dealer)
+    // add card to hand
     hit(deck) {
         const incomingCard = deck.removeAndFetchTopMostCard();
         this.addCard(incomingCard);
