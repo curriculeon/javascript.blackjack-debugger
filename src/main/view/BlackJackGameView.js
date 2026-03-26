@@ -6,7 +6,8 @@ class BlackJackGameView {
     }
 
     clearGameOptions() {        
-        document.getElementById("game-options").style.display = "";
+        // explicitly show the in-game controls
+        document.getElementById("game-options").style.display = "block";
     }
 
 
@@ -61,23 +62,62 @@ class BlackJackGameView {
 
     checkAndUpdateWinner() {
         if (this.blackJackGameData.getCurrentPlayer().getHandTotal() > 21) {
-            const winnerElement = document.getElementById("winner");
-            winnerElement.innerHTML = "Player: " + this.blackJackGameData.getCurrentPlayer().name + " LOST";			
-            winnerElement.style.display = "inline-block";
-            this.endGame()
+            // current player busted -> end the round and let endGame compute winner
+            this.endGame();
         }
     }
 
     endGame() {
-        let winner = this.blackJackGameData.getDealer();
-        const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
-        const playerScore = this.blackJackGameData.getPlayer().getHandTotal();
-        if (playerScore > dealerScore && playerScore < 22) {
-            winner = player;
+        // Reveal dealer hole card
+        const dealer = this.blackJackGameData.getDealer();
+        const player = this.blackJackGameData.getPlayer();
+        try {
+            // If using the logger wrapper, expose the underlying playerData hide flag
+            if (dealer.blackJackPlayerData && dealer.blackJackPlayerData.playerData) {
+                dealer.blackJackPlayerData.playerData.hideHoleCard = false;
+            }
+        } catch (e) {
+            // ignore if structure differs
         }
-        document.getElementById("game-options").style.display = "none";
-        document.getElementById("winner").innerHTML = "Winner: Player " + winner.name;
-        document.getElementById("winner").style.display = "inline-block";
+        // if the dealer has a hole card element, animate a flip to reveal it
+        const holeCardEl = document.querySelector('#hand_Dealer .card');
+        const finalize = () => {
+            const dealerScore = dealer.getHandTotal();
+            const playerScore = player.getHandTotal();
+
+            let resultText = "";
+            if (playerScore > 21) {
+                resultText = "Dealer wins (player bust)";
+            } else if (dealerScore > 21) {
+                resultText = "Player wins (dealer bust)";
+            } else if (playerScore > dealerScore) {
+                resultText = "Player wins";
+            } else if (dealerScore > playerScore) {
+                resultText = "Dealer wins";
+            } else {
+                resultText = "Draw";
+            }
+
+            // update UI
+            document.getElementById("game-options").style.display = "none";
+            // update points and deck count now that cards are revealed
+            this.updatePoints();
+            this.setNumberOfCardsOnScreen();
+
+            const winnerElement = document.getElementById("winner");
+            winnerElement.innerHTML = "Result: " + resultText + " (Player: " + playerScore + " vs Dealer: " + dealerScore + ")";
+            winnerElement.style.display = "inline-block";
+        };
+
+        if (holeCardEl) {
+            // remove flipped class to animate reveal (hole card was flipped showing back)
+            holeCardEl.classList.remove('flipped');
+            // Wait for the flip animation to finish (matching CSS transition 600ms) before finalizing
+            setTimeout(finalize, 700);
+        } else {
+            // no DOM element found - just finalize immediately
+            finalize();
+        }
     }
 
     removeActiveOnCurrentPlayer() {

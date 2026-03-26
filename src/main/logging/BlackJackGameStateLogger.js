@@ -10,6 +10,7 @@ class BlackJackGameStateLogger {
         log("Checking if current player is last player.");
         const outcome = this.blackJackGameData.isCurrentPlayerDealer();
         log("Current player is " + (outcome ? "" : "not") + " last player.")
+        return outcome;
     }
 
     getPlayer() {

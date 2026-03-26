@@ -53,6 +53,14 @@ class BlackJackGameState {
 
     play() {
         const deck = this.deck;
+        // hide dealer's first (hole) card until the round ends
+        try {
+            if (this.dealer.blackJackPlayerData && this.dealer.blackJackPlayerData.playerData) {
+                this.dealer.blackJackPlayerData.playerData.hideHoleCard = true;
+            }
+        } catch (e) {
+            // ignore if structure differs
+        }
 
         this.dealer.hit(deck);
         this.dealer.hit(deck);

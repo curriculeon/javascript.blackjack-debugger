@@ -21,12 +21,13 @@ class Deck {
     
     // simulates shuffling a deck
     shuffle() {
-        for (let currentIndex = this.cards.length - 1; currentIndex > 1; currentIndex--) {
-            const randomIndex = Math.floor(Math.random() * currentIndex);
+        // Fisher-Yates shuffle: iterate down to index 1 inclusive and pick random index in [0..currentIndex]
+        for (let currentIndex = this.cards.length - 1; currentIndex > 0; currentIndex--) {
+            const randomIndex = Math.floor(Math.random() * (currentIndex + 1));
             const currentCard = this.cards[currentIndex];
-            this.cards[currentIndex]  = this.cards[randomIndex];
+            this.cards[currentIndex] = this.cards[randomIndex];
             this.cards[randomIndex] = currentCard;
-          }
+        }
     }
 
     toString() {

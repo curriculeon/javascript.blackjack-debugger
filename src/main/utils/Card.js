@@ -32,6 +32,7 @@ class Card {
     }
 
     toString() {
-        return this.getValue() + " of " + this.getIcon();
+        const label = (typeof this.rank === 'number') ? this.rank : (this.rank.charAt(0).toUpperCase() + this.rank.slice(1));
+        return label + " of " + this.getIcon();
     }
 }
